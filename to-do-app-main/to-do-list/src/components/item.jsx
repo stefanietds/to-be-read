@@ -60,6 +60,9 @@ function Item({ key, item, handleUpdate }) {
 				)}
 			</div>
 
+            
+			
+             
 			<button onClick={handleDelete}>Apagar</button>
 		</div>
 	);
