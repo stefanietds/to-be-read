@@ -59,8 +59,6 @@ function Item({ key, item, handleUpdate }) {
 				)}
 			</div>
 			<button onClick={handleDelete}>Apagar</button>
-			<button onClick={handleHeart}>❤️</button>
-
 		</div>
 	);
 }
