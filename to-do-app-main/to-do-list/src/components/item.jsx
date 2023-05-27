@@ -25,7 +25,6 @@ function Item({ key, item, handleUpdate }) {
 		}
 	}
 
-
 	return (
 		<div className="card">
 			<input
@@ -59,11 +58,9 @@ function Item({ key, item, handleUpdate }) {
 					/>
 				)}
 			</div>
-
-            
-			
-             
 			<button onClick={handleDelete}>Apagar</button>
+			<button onClick={handleHeart}>❤️</button>
+
 		</div>
 	);
 }

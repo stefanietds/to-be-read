@@ -6,11 +6,10 @@ import todoApi from './services/apiHandler';
 
 function App() {
 	const [itens, setItens] = useState([]);
-	//const [filter, setFilter] = useState({ filter: false, active: false })
+	const [filter, setFilter] = useState({ filter: false, active: false })
   
 			
 	//me
-	const [filter, setFilter] = useState({ filter: false, active: false, queroLer: false });
 	const [search, setSearch] = React.useState("");
 	console.log(search);
 	const searchLowerCase = search.toLowerCase()
@@ -77,15 +76,13 @@ function App() {
 					);
 				})}
 				<div className="rowContainer">
-				<span className={"filter"} style={filter.filter ? {} : { fontWeight: "bold" }} onClick={() => setFilter({ filter: false })}>Todos</span>
+				    <span className={"filter"} style={filter.filter ? {} : { fontWeight: "bold" }} onClick={() => setFilter({ filter: false })}>Todos</span>
 					<span className={"filter"} style={(filter.filter && filter.active === true) ? { fontWeight: "bold" } : {}} onClick={() => setFilter({ filter: true, active: true })}>Lendo</span>
 					<span className={"filter"} style={(filter.filter && filter.active === false) ? { fontWeight: "bold" } : {}} onClick={() => setFilter({ filter: true, active: false })}>Lidos</span>
 				</div>
 				<div className="rowContainer">
 					<button onClick={handleAdd}>Adicionar</button>
 				</div>
-
-				
 			   <h3>Filtrar To be Read</h3>
 				<input type="search" className="card" value={search} 
 				onChange={(e) => setSearch(e.target.value)}/>
