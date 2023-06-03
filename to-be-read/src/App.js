@@ -3,7 +3,6 @@ import Item from "../src/components/item";
 import React, { useEffect, useState } from "react";
 import todoApi from './services/apiHandler';
 
-
 function App() {
 	const [itens, setItens] = useState([]);
 	const [filter, setFilter] = useState({ filter: false, active: false })
@@ -58,7 +57,6 @@ function App() {
 	//end
 
 	return (
-
 		<div className="main">
 			<div className="to-do-list">
 				<h1>To Be Read</h1>
@@ -95,7 +93,6 @@ function App() {
 					</li>
 					))}
 				</ul>
-				
 
 			</div>
 
