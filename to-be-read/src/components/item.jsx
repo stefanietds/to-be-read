@@ -3,6 +3,8 @@ import React, { useState } from "react";
 function Item({ key, item, handleUpdate }) {
 	const [tempText, setTempText] = useState("");
 
+	
+
 	function handleStatus() {
 		const tempItem = { ...item, active: !item.active };
 		handleUpdate(tempItem);
@@ -24,6 +26,8 @@ function Item({ key, item, handleUpdate }) {
 			handleUpdate(tempItem);
 		}
 	}
+
+	
 
 	return (
 		<div className="card">
@@ -59,6 +63,7 @@ function Item({ key, item, handleUpdate }) {
 				)}
 			</div>
 			<button onClick={handleDelete}>Apagar</button>
+			
 		</div>
 	);
 }

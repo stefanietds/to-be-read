@@ -6,6 +6,7 @@ const dbName = process.env.DBNAME;
 
 var _db;
 
+//faz conexão ao banco
 const connectToServer = (callback) => {
     MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
         assert.equal(null, err);
@@ -14,7 +15,8 @@ const connectToServer = (callback) => {
         return callback(err);
     })
 };
-
+//funções chamadas pelas rotas
+//é chamado pela rota create
 const insertDocument = async function (collection, document) {
     return new Promise((resolve, reject) => {
         _db.collection(collection).insertOne(document).then(function (result) {
@@ -23,7 +25,7 @@ const insertDocument = async function (collection, document) {
 
     });
 };
-
+//é chamado pela rota list
 const findDocuments = async function (collection) {
     return new Promise((resolve, reject) => {
         _db.collection(collection).find({}).toArray(function (err, docs) {
@@ -33,7 +35,7 @@ const findDocuments = async function (collection) {
     });
 
 };
-
+//é chamado pela rota update
 const updateDocument = function (collection, query, data) {
     return new Promise((resolve, reject) => {
         _db.collection(collection).updateOne(query, { $set: data }, function (err, result) {
@@ -42,7 +44,7 @@ const updateDocument = function (collection, query, data) {
         });
     });
 };
-
+//é chamado pela rota delete
 const removeDocument = function (collection, query) {
     return new Promise((resolve, reject) => {
         _db.collection(collection).deleteOne(query, function (err, result) {

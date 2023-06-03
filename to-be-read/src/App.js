@@ -7,9 +7,7 @@ import todoApi from './services/apiHandler';
 function App() {
 	const [itens, setItens] = useState([]);
 	const [filter, setFilter] = useState({ filter: false, active: false })
-  
-			
-	//me
+	//end
 	const [search, setSearch] = React.useState("");
 	console.log(search);
 	const searchLowerCase = search.toLowerCase()
@@ -45,6 +43,7 @@ function App() {
 			})
 	}
 
+
 	const itensToShow = filter.filter
 		? itens.filter(item => item.active === filter.active)
 		: itens
@@ -56,7 +55,6 @@ function App() {
 	//me code
 	const items = itensToShow.filter((item) => 
 	item.text.toLowerCase().includes(searchLowerCase));
-
 	//end
 
 	return (
@@ -74,15 +72,19 @@ function App() {
 							handleUpdate={handleUpdate}
 						/>
 					);
+					
 				})}
 				<div className="rowContainer">
 				    <span className={"filter"} style={filter.filter ? {} : { fontWeight: "bold" }} onClick={() => setFilter({ filter: false })}>Todos</span>
-					<span className={"filter"} style={(filter.filter && filter.active === true) ? { fontWeight: "bold" } : {}} onClick={() => setFilter({ filter: true, active: true })}>Lendo</span>
-					<span className={"filter"} style={(filter.filter && filter.active === false) ? { fontWeight: "bold" } : {}} onClick={() => setFilter({ filter: true, active: false })}>Lidos</span>
+					<span className={"filter"} style={(filter.filter && filter.active === true) ? { fontWeight: "bold" } : {}} 
+					onClick={() => setFilter({ filter: true, active: true })}>Lendo</span>
+					<span className={"filter"} style={(filter.filter && filter.active === false) ? { fontWeight: "bold" } : {}} 
+					onClick={() => setFilter({ filter: true, active: false })}>Lidos</span>
 				</div>
-				<div className="rowContainer">
+				<div>
 					<button onClick={handleAdd}>Adicionar</button>
 				</div>
+
 			   <h3>Filtrar To be Read</h3>
 				<input type="search" className="card" value={search} 
 				onChange={(e) => setSearch(e.target.value)}/>

@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoUtil = require('../services/db')
 const { ObjectId } = require('mongodb')
 
+//se comunica com db para fazer conexão
 mongoUtil.connectToServer(function (err) {
   if (err) console.log(err);
 
@@ -11,7 +12,7 @@ mongoUtil.connectToServer(function (err) {
       res.send({ data })
     })
   });
-
+//Rotas que chamam as funções
   router.put('/update', function (req, res, next) {
     const { text, active, edit } = req.body
     mongoUtil.updateDocument('to-do',
@@ -22,7 +23,7 @@ mongoUtil.connectToServer(function (err) {
     });
   });
 
-  router.post('/insert', function (req, res, next) {
+  router.post('/create', function (req, res, next) {
     console.log(req.body)
     mongoUtil.insertDocument('to-do', req.body).then(data => {
       res.send({ data })
