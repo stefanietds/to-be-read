@@ -23,7 +23,7 @@ mongoUtil.connectToServer(function (err) {
     });
   });
 
-  router.post('/create', function (req, res, next) {
+  router.post('/insert', function (req, res, next) {
     console.log(req.body)
     mongoUtil.insertDocument('to-do', req.body).then(data => {
       res.send({ data })
