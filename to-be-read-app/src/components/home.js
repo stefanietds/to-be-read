@@ -1,20 +1,21 @@
-import "./App.css";
-import Item from "../src/components/item";
+import "../App.css"
+import Item from "./item"
 import React, { useEffect, useState } from "react";
-import todoApi from './services/apiHandler';
+import todoApi from "../services/apiHandler";
+import Filter from "./filter";
 
-function App() {
-	const [itens, setItens] = useState([]);
+function Home(){
+    const [itens, setItens] = useState([]);
 	const [filter, setFilter] = useState({ filter: false, active: false })
-	//end
-	const [search, setSearch] = React.useState("");
-	console.log(search);
-	const searchLowerCase = search.toLowerCase()
-	//end
 	
+	const itensToShow = filter.filter
+		? itens.filter(item => item.active === filter.active)
+		: itens
 
-	function getList() {
-		fetch('http://localhost:3000/to-do/list')
+	
+	
+    function getList() {
+		fetch('http://localhost:4000/livros/list')
 			.then(response => response.json())
 			.then(data => {
 				setItens(data.data)
@@ -43,20 +44,15 @@ function App() {
 	}
 
 
-	const itensToShow = filter.filter
-		? itens.filter(item => item.active === filter.active)
-		: itens
+
 
 	useEffect(() => {
 		getList()
 	}, [])
 
-	//me code
-	const items = itensToShow.filter((item) => 
-	item.text.toLowerCase().includes(searchLowerCase));
-	//end
 
-	return (
+
+    return (
 		<div className="main">
 			<div className="to-do-list">
 				<h1>To Be Read</h1>
@@ -82,22 +78,8 @@ function App() {
 				<div>
 					<button onClick={handleAdd}>Adicionar</button>
 				</div>
-
-			   <h3>Filtrar To be Read</h3>
-				<input type="search" className="card" value={search} 
-				onChange={(e) => setSearch(e.target.value)}/>
-				<ul>
-					{items.map((item) => (
-					<li key={item.text} className="card" style={{width:'full'}}>
-						<p>{item.text}</p>
-					</li>
-					))}
-				</ul>
-
-			</div>
-
+                </div>
 		</div>
-	);
+    );
 }
-
-export default App;
+export default Home;

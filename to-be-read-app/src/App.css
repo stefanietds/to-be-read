@@ -67,3 +67,22 @@ span {
 .filter {
   cursor: pointer;
 }
+
+section{
+  min-height: 100vh;
+  padding-top: 3rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2 rem;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+}
+
+* {margin: 0;}
+
+html{
+  scroll-behavior: smooth;
+}

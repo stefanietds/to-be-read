@@ -8,14 +8,14 @@ mongoUtil.connectToServer(function (err) {
   if (err) console.log(err);
 
   router.get('/list', function (req, res, next) {
-    mongoUtil.findDocuments('to-do').then(data => {
+    mongoUtil.findDocuments('livros').then(data => {
       res.send({ data })
     })
   });
 //Rotas que chamam as funções
   router.put('/update', function (req, res, next) {
     const { text, active, edit } = req.body
-    mongoUtil.updateDocument('to-do',
+    mongoUtil.updateDocument('livros',
       { _id: ObjectId(req.body._id) },
       { text, active, edit }
     ).then(data => {
@@ -25,13 +25,13 @@ mongoUtil.connectToServer(function (err) {
 
   router.post('/insert', function (req, res, next) {
     console.log(req.body)
-    mongoUtil.insertDocument('to-do', req.body).then(data => {
+    mongoUtil.insertDocument('livros', req.body).then(data => {
       res.send({ data })
     })
   });
 
   router.delete('/delete', function (req, res, next) {
-    mongoUtil.removeDocument('to-do', { _id: ObjectId(req.body._id) }).then(data => {
+    mongoUtil.removeDocument('livros', { _id: ObjectId(req.body._id) }).then(data => {
       res.send({ data })
     })
   });

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import Filtro from "./filter";
 
 function Item({ key, item, handleUpdate }) {
 	const [tempText, setTempText] = useState("");
-
-	
 
 	function handleStatus() {
 		const tempItem = { ...item, active: !item.active };
