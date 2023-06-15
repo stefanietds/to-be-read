@@ -15,8 +15,7 @@ const connectToServer = (callback) => {
         return callback(err);
     })
 };
-//funções chamadas pelas rotas
-//é chamado pela rota create
+
 const insertDocument = async function (collection, document) {
     return new Promise((resolve, reject) => {
         _db.collection(collection).insertOne(document).then(function (result) {

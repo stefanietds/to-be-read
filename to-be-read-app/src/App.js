@@ -1,9 +1,7 @@
 import "./App.css";
 import Home from "./components/home";
-import { Link, Route, Routes } from 'react-router-dom';
 import Login from "./components/Login";
 import axios from "axios";
-import Filtro from "./components/filter";
 import PaginaInicial from "./components/inicial";
 
 function App() {
@@ -19,23 +17,28 @@ function App() {
 
   if(!token)
        return <Login />
-
-  //apos arrumar o filtro inserir no return
+     
 	return(
 		<div className="App">
+      <div className="Sair">
        <a href='#logout' onClick={handleLogout}>Sair</a>
-      <nav>
-        <ul>
-          <li><a href="#PaginaInicial">Pagina Inicial</a></li>
+      </div>
+      <div className="J1">
+        
+        <ul className="nav" >
+          <li><a href="#Pagina Inicial">Pagina Inicial</a></li>
           <li><a href="#Home">Home</a></li>
-          <li><a href="#Filter">Filter</a></li>
         </ul>
-      </nav>
+        <div className="para">
+         <h1> Seja bem vindo !! </h1>
+      </div>
+      </div>
       <main>
         <section id="PaginaInicial"><PaginaInicial/></section>
         <section id="Home"><Home/></section>
       </main>
     </div>
+    
   );
 }
 

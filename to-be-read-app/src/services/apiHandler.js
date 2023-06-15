@@ -8,5 +8,3 @@ export default async function todoApi(route, method, body) {
     })
     return response.json()
 }
-/* Interface para fazer chamadas de API 
-e solicitar serviços ao server */

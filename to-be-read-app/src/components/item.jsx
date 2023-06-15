@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Filtro from "./filter";
 
 function Item({ key, item, handleUpdate }) {
 	const [tempText, setTempText] = useState("");
@@ -21,7 +20,7 @@ function Item({ key, item, handleUpdate }) {
 
 	function handleKeyPress(e) {
 		const tempItem = { ...item, text: tempText, active: true, edit: false };
-		if (e.charCode === 13 || e.type === "blur") {
+		if (e.charCode === 13) {
 			handleUpdate(tempItem);
 		}
 	}

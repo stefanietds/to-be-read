@@ -14,4 +14,3 @@
 >
 >npm start
 
-<p>O backend ***deve rodar na porta 3000***, pois o front está hardcoded para alcançar essa porta</p>
