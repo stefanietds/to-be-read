@@ -1,11 +1,6 @@
 name: Continuos Integration
-
-
-
-
-
 #evento que chama workflow
-on: pull_request
+on: push
 jobs:
    continuos-integration:
       runs-on: ubuntu-latest
