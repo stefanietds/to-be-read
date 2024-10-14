@@ -1,6 +1,6 @@
 name: Continuos Integration
 #evento que chama workflow
-on: push
+on: merge_request
 jobs:
    continuos-integration:
       runs-on: ubuntu-latest
