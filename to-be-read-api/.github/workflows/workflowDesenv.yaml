@@ -1,8 +1,6 @@
 name: Continuos Integration
-
 #evento que chama workflow
-on: push
-
+on: pull_request
 jobs:
    continuos-integration:
       runs-on: ubuntu-latest
@@ -16,4 +14,4 @@ jobs:
          - name: Install dependencies
            run: |
                 npm install
-                npm run build
+                npm start run
