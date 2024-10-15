@@ -13,6 +13,5 @@ jobs:
               node-version: 18
          - name: Install dependencies
            run: |
-                cd to-be-read-api/
                 npm install
                 npm start
