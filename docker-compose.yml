@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  node:
+    image: to-be-read-api
+    restart: always
+    ports:
+      - "4000:4000"
+    networks:
+      - to-be-read
+    
+  react:
+    image: to-be-read-app
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - to-be-read
+
+networks:
+  to-be-read:
+    driver: bridge
